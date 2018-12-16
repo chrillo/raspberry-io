@@ -1,0 +1,22 @@
+{
+  "name": "raspberry-io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chrillo/raspberry-io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chrillo/raspberry-io/issues"
+  },
+  "homepage": "https://github.com/chrillo/raspberry-io#readme",
+  "dependencies": {
+    "onoff": "^3.2.2"
+  }
+}
