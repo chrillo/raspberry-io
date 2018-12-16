@@ -1,23 +1,22 @@
 const Gpio = require('onoff').Gpio;
+const led = new Gpio(18, 'out');
+const button = new Gpio(22, 'in', 'both');
 
-let led;
+//led.writeSync(1)
 
-if (Gpio.accessible) {
-  led = new Gpio(18, 'out');
-  // more real code here
-} else {
-  led = {
-    writeSync: (value) => {
-      console.log('virtual led now uses value: ' + value);
-    }
-  };
-}
 
-//const button = new Gpio(4, 'in', 'both');
-led.writeSync(1)
+button.watch((err, value) => {
+  if (err) {
+    throw err;
+  }
+  console.log('button change', value)
+  led.writeSync(value);
+});
+
+
 //button.watch((err, value) => led.writeSync(value));
 process.on('SIGINT', () => {
     led.unexport();
-    //button.unexport();
+    button.unexport();
 });
   
